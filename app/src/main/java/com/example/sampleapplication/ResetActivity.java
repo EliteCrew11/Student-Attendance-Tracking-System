@@ -106,6 +106,16 @@ public class ResetActivity extends AppCompatActivity {
                                 }
                             });
                         }
+                        }else{
+                        Toast.makeText(ResetActivity.this, "No Internet Connection..", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -32,4 +32,19 @@ public class StudentLogin extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
 
-    
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_student_login);
+
+        resetPassword = findViewById(R.id.id_resetpassword);
+        createaccount = findViewById(R.id.id_createaccount);
+        enter_paswword = findViewById(R.id._id_enter_paswword);
+        showpassword = findViewById(R.id.id_showpassword);
+        _enter_username = findViewById(R.id._id_enter_username);
+        backButton = findViewById(R.id.id_back);
+        login = findViewById(R.id.id_login);
+        mAuth = FirebaseAuth.getInstance();
+
+
+        

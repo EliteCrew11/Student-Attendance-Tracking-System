@@ -26,6 +26,21 @@ public class ResetActivity extends AppCompatActivity {
     EditText enterNewPasswordFaculty, enterconfirmPasswordFaculty, id_enterFaculty;
     ConstraintLayout id_reset;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reset);
+
+        backButton = findViewById(R.id.id_back);
+        showconfirmpassword = findViewById(R.id.id_showconfirmpassword);
+        showpassword = findViewById(R.id.id_showpassword);
+        id_reset = findViewById(R.id.id_reset);
+        id_enterFaculty = findViewById(R.id.id_enterFaculty);
+        text_facultyID = findViewById(R.id.text_facultyID);
+        enterconfirmPasswordFaculty = findViewById(R.id.id_enterConfirmPasswordFaculty);
+        enterNewPasswordFaculty = findViewById(R.id.id_enterNewPasswordFaculty);
+
+        
 }
 
 

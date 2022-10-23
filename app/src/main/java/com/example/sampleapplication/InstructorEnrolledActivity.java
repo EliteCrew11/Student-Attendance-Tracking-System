@@ -25,3 +25,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+public class InstructorEnrolledActivity extends AppCompatActivity {
+
+
+    ImageView logout;
+    RecyclerView instructor_recylerlview;
+    private DatabaseReference mDatabase;
+    InstructorCourseAdapter instructorCourseAdapter;
+    ProgressDialog progressDialog;
+
+
+    

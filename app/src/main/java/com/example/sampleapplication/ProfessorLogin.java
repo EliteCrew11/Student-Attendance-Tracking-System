@@ -75,4 +75,21 @@ public class ProfessorLogin extends AppCompatActivity {
         });
 
 
+        showpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showpassword.getTag().equals("close")) {
+                    showpassword.setTag("open");
+                    enter_paswword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_open_password));
+
+                } else {
+                    showpassword.setTag("close");
+                    enter_paswword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_close_password));
+
+                }
+            }
+        });
+
         

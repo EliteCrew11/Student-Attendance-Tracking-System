@@ -56,4 +56,81 @@ public class StudentLogin extends AppCompatActivity {
             }
         });
 
-        
+        createaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudentLogin.this, RegistrationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudentLogin.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        showpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showpassword.getTag().equals("close")) {
+                    showpassword.setTag("open");
+                    enter_paswword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_open_password));
+
+                } else {
+                    showpassword.setTag("close");
+                    enter_paswword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_close_password));
+
+                }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+
+                    progressDialog = new ProgressDialog(StudentLogin.this);
+                    progressDialog.setMessage("Loading....");
+
+
+                    String emailUsername = _enter_username.getText().toString();
+                    String passwordText = enter_paswword.getText().toString();
+
+
+
+                    if (TextUtils.isEmpty(emailUsername)) {
+                        Toast.makeText(StudentLogin.this, "Enter Mail", Toast.LENGTH_LONG).show();
+                    } else if (TextUtils.isEmpty(passwordText)) {
+                        Toast.makeText(StudentLogin.this, "Enter password", Toast.LENGTH_LONG)
+                                .show();
+                    } else {
+                        progressDialog.show();
+
+
+                       
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(StudentLogin.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}

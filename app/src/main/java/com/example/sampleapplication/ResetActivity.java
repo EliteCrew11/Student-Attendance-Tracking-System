@@ -48,6 +48,24 @@ public class ResetActivity extends AppCompatActivity {
             text_facultyID.setText("Sid (@nwmissouri.edu)*");
         }
 
+        showpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showpassword.getTag().equals("close")) {
+                    showpassword.setTag("open");
+                    enterNewPasswordFaculty.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_open_password));
+
+                } else {
+                    showpassword.setTag("close");
+                    enterNewPasswordFaculty.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    showpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_close_password));
+
+                }
+            }
+        });
+
+
         
 }
 

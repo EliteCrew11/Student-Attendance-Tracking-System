@@ -116,3 +116,11 @@ public class ProfessorLogin extends AppCompatActivity {
                         progressDialog.show();
 
                         
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProfessorLogin.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}

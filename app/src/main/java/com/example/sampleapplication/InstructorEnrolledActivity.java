@@ -35,4 +35,24 @@ public class InstructorEnrolledActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
 
-    
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_instructor_enrolled);
+
+        instructor_recylerlview = findViewById(R.id.student_recylerlview);
+        instructor_recylerlview.setLayoutManager(new LinearLayoutManager(this));
+        logout=findViewById(R.id.id_logout);
+
+        ArrayList<String> course = new ArrayList<>();
+        if (CommonUtils.isConnectedToInternet(InstructorEnrolledActivity.this)) {
+            try {
+                updatePassword();
+                getStudentCourses(course);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(InstructorEnrolledActivity.this, "No Internet Connection....", Toast.LENGTH_SHORT).show();
+        }
+        }

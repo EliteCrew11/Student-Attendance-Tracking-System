@@ -17,3 +17,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sampleapplication.professor.InstructorCourseAdapter;
+import com.example.sampleapplication.student.StudentCourseAdapter;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+

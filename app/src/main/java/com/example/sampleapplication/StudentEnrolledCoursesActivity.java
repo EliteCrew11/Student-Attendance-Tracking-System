@@ -103,6 +103,24 @@ public class StudentEnrolledCoursesActivity extends AppCompatActivity {
                 RegistrationModel post = snapshot.getValue(RegistrationModel.class);
                 course.clear();
                 String courseData = post.getCourse();
+                if(TextUtils.isEmpty(courseData)){
+
+                }else{
+                    if (!courseData.isEmpty()) {
+                        String arr[] = courseData.split(",");
+                        for (String a : arr) {
+                            System.out.println(a);
+                            course.add(a);
+                        }
+                        studentCourseAdapter.notifyDataSetChanged();
+
+                    }
+
+                }
+
+
+            }
+
     
 
 

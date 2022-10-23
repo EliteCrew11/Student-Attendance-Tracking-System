@@ -47,4 +47,13 @@ public class StudentLogin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudentLogin.this, ResetActivity.class);
+                intent.putExtra("RESET", "STUDENT");
+                startActivity(intent);
+            }
+        });
+
         

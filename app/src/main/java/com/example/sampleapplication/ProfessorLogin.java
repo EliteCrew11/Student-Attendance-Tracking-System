@@ -107,4 +107,12 @@ public class ProfessorLogin extends AppCompatActivity {
                     String passwordText = enter_paswword.getText().toString();
 
 
-                    
+                    if (TextUtils.isEmpty(emailUsername)) {
+                        Toast.makeText(ProfessorLogin.this, "Enter Mail", Toast.LENGTH_LONG).show();
+                    } else if (TextUtils.isEmpty(passwordText)) {
+                        Toast.makeText(ProfessorLogin.this, "Enter password", Toast.LENGTH_LONG)
+                                .show();
+                    } else {
+                        progressDialog.show();
+
+                        

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="@dimen/_10sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="#514E4E"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/text_intstructorName"
+        android:text="Instructor:"
+        android:textStyle="normal"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Dr.Aziz Fellah"
+        android:textStyle="bold"
+        android:id="@+id/id_instructorName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        app:layout_constraintLeft_toRightOf="@id/text_intstructorName"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/id_instructorName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="#514E4E"
+        android:text="Email: "
+        android:id="@+id/textEmail"
+        android:textSize="@dimen/_16sdp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="afellah@nwmissouri.edu"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:id="@+id/id_instructorEmail"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintTop_toBottomOf="@id/id_instructorName"
+        app:layout_constraintLeft_toRightOf="@id/textEmail"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/id_instructorEmail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Lecture times: "
+        android:textColor="#514E4E"
+        android:id="@+id/textTimes"
+        android:textSize="@dimen/_16sdp"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/text_layout"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/textTimes"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="MWF: 9:00-09:50 AM GS 1050"
+            android:textStyle="bold"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:id="@+id/id_instructorTimes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+<TextView
+    android:layout_width="match_parent"
+    android:text="Office hours: MF: 2:00 - 4:30PM ; T:11:00-12:00 or by appointment"
+    app:layout_constraintTop_toBottomOf="@id/text_layout"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:textSize="@dimen/_16sdp"
+    android:id="@+id/id_officehours"
+    android:textColor="#514E4E"
+    android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/id_officehours"
+        android:text="Office Colden Hall 2220"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/id_hall"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="#514E4E"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/id_hall"
+        android:text="Tel: (660) 562-0803"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/id_tel"
+        android:textColor="#514E4E"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

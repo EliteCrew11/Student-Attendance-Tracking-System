@@ -55,4 +55,60 @@ public class InstructorEnrolledActivity extends AppCompatActivity {
         } else {
             Toast.makeText(InstructorEnrolledActivity.this, "No Internet Connection....", Toast.LENGTH_SHORT).show();
         }
-        }
+        instructorCourseAdapter = new InstructorCourseAdapter(this, course);
+        instructor_recylerlview.setAdapter(instructorCourseAdapter);
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent=new Intent(InstructorEnrolledActivity.this,ProfessorLogin.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+    }
+
+    private void getStudentCourses(ArrayList<String> course) {
+        progressDialog = new ProgressDialog(InstructorEnrolledActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");
+        String studentID = FirebaseAuth.getInstance().getUid();
+        myRef.child(studentID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressDialog.cancel();
+                Log.d("Instructor Course", snapshot.toString());
+                RegistrationModel post = snapshot.getValue(RegistrationModel.class);
+                course.clear();
+                String courseData = post.getCourse();
+                if(TextUtils.isEmpty(courseData)){
+
+                }else{
+                    if (!courseData.isEmpty()) {
+                        String arr[] = courseData.split(",");
+                        for (String a : arr) {
+                            System.out.println(a);
+                            course.add(a);
+                        }
+                        instructorCourseAdapter.notifyDataSetChanged();
+
+                    }
+
+                }
+
+
+            }
+
+            
+    @Override
+    public void onBackPressed() {
+
+    }
+}

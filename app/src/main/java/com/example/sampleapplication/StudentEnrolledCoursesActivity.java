@@ -85,7 +85,27 @@ public class StudentEnrolledCoursesActivity extends AppCompatActivity {
 
         }
     }
+
+
+    private void getStudentCourses(ArrayList<String> course) {
+        progressDialog = new ProgressDialog(StudentEnrolledCoursesActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("UserDetails").child("Student");
+        String studentID = FirebaseAuth.getInstance().getUid();
+        myRef.child(studentID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                progressDialog.cancel();
+                Log.d("Student Course", snapshot.toString());
+                RegistrationModel post = snapshot.getValue(RegistrationModel.class);
+                course.clear();
+                String courseData = post.getCourse();
     
+
+
     @Override
     public void onBackPressed() {
 

@@ -92,4 +92,19 @@ public class ProfessorLogin extends AppCompatActivity {
             }
         });
 
-        
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+
+
+                    progressDialog = new ProgressDialog(ProfessorLogin.this);
+                    progressDialog.setMessage("Loading....");
+
+
+                    String emailUsername = enter_username.getText().toString().trim();
+                    String passwordText = enter_paswword.getText().toString();
+
+
+                    

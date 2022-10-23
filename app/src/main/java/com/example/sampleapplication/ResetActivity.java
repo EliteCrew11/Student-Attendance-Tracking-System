@@ -66,6 +66,23 @@ public class ResetActivity extends AppCompatActivity {
         });
 
 
+        showconfirmpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (showconfirmpassword.getTag().equals("close")) {
+                    showconfirmpassword.setTag("open");
+                    enterconfirmPasswordFaculty.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    showconfirmpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_open_password));
+
+                } else {
+                    showconfirmpassword.setTag("close");
+                    enterconfirmPasswordFaculty.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    showconfirmpassword.setImageDrawable(getResources().getDrawable(R.drawable.eye_close_password));
+
+                }
+            }
+        });
+
         
 }
 

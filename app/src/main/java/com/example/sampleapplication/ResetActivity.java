@@ -18,6 +18,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+public class ResetActivity extends AppCompatActivity {
 
+
+    ImageView backButton, showconfirmpassword, showpassword;
+    TextView text_facultyID;
+    EditText enterNewPasswordFaculty, enterconfirmPasswordFaculty, id_enterFaculty;
+    ConstraintLayout id_reset;
+
+}
 
 

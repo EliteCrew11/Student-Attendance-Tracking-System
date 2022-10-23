@@ -175,6 +175,19 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    private void getEmailVerification(FirebaseAuth auth, String sID) {
+        FirebaseUser firebaseAuth = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseAuth.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(RegistrationActivity.this, "check email for verification", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    }
+
                         
 
 }

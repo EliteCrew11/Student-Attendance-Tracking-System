@@ -83,6 +83,30 @@ public class ResetActivity extends AppCompatActivity {
             }
         });
 
+        id_reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    if(CommonUtils.isConnectedToInternet(ResetActivity.this)){
+                        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                        String email="";
+                        email = id_enterFaculty.getText().toString();
+                        if (email.isEmpty()){
+                            Toast.makeText(ResetActivity.this, "Enter Mail ID", Toast.LENGTH_SHORT).show();
+                        }else{
+                            firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(ResetActivity.this, "Please check mail....", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(ResetActivity.this, "Please try again after sometime....", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

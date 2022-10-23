@@ -121,7 +121,14 @@ public class StudentEnrolledCoursesActivity extends AppCompatActivity {
 
             }
 
-    
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                progressDialog.cancel();
+                Toast.makeText(StudentEnrolledCoursesActivity.this, "Data Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 
 
     @Override

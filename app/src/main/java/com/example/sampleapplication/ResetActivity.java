@@ -40,6 +40,14 @@ public class ResetActivity extends AppCompatActivity {
         enterconfirmPasswordFaculty = findViewById(R.id.id_enterConfirmPasswordFaculty);
         enterNewPasswordFaculty = findViewById(R.id.id_enterNewPasswordFaculty);
 
+        String isFrom = getIntent().getStringExtra("RESET");
+
+        if (isFrom.equals("PROFESSOR")) {
+            text_facultyID.setText("Faculty ID (@nwmissouri.edu)*");
+        } else {
+            text_facultyID.setText("Sid (@nwmissouri.edu)*");
+        }
+
         
 }
 

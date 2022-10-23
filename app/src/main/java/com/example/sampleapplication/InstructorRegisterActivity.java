@@ -119,3 +119,18 @@ public class InstructorRegisterActivity extends AppCompatActivity {
                         Toast.makeText(InstructorRegisterActivity.this, "select course ", Toast.LENGTH_LONG).show();
                     }  else {
                         String list = course;
+
+                        
+
+                } catch (Exception exception) {
+                    Toast.makeText(InstructorRegisterActivity.this, "Try again after sometime", Toast.LENGTH_LONG).show();
+                }
+
+
+            }
+        });
+
+    }
+
+
+}

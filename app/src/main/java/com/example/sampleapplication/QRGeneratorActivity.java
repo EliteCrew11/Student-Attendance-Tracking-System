@@ -55,4 +55,102 @@ public class QRGeneratorActivity extends AppCompatActivity {
 
     }
 
-    
+    private void showTimer() {
+    try {
+
+
+
+        new CountDownTimer(300000, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+                NumberFormat f = new DecimalFormat("00");
+
+                long hour = (millisUntilFinished / 3600000) % 24;
+
+                long min = (millisUntilFinished / 60000) % 60;
+
+                long sec = (millisUntilFinished / 1000) % 60;
+
+                ((TextView) findViewById(R.id.timerr)).setText("seconds remaining: "+f.format(hour) +":" + f.format(min) + ":" + f.format(sec));
+                //       ((TextView) findViewById(R.id.timerr)).setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                finish();
+            //    mTextField.setText("done!");
+            }
+        }.start();
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    }
+
+    private void generateQRCode(String subject) {
+        QRCodeWriter writer = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = writer.encode(subject, BarcodeFormat.QR_CODE, 512, 512);
+            int width = bitMatrix.getWidth();
+            int height = bitMatrix.getHeight();
+            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                }
+            }
+            ((ImageView) findViewById(R.id.img_result_qr)).setImageBitmap(bmp);
+
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void requestPermissios(QRGeneratorActivity mainActivity) {
+        if (ContextCompat.checkSelfPermission(mainActivity,
+                Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+        } else {
+            requestcameraPermission();
+        }
+    }
+
+    private void requestcameraPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed because of this and that")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(QRGeneratorActivity.this,
+                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CAMERA_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, CAMERA_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permission GRANTED", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+}

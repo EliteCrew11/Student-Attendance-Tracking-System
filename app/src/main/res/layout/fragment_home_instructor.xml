@@ -30,7 +30,18 @@
         app:layout_constraintLeft_toRightOf="@id/text_intstructorName"
         android:layout_height="wrap_content"/>
 
-   
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/id_instructorName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Email: "
+        android:id="@+id/textEmail"
+        android:textColor="#514E4E"
+        android:textSize="@dimen/_16sdp"
+        android:layout_height="wrap_content"/>
+
+    
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

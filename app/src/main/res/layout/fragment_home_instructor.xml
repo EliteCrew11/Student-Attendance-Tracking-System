@@ -86,6 +86,16 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Office hours: MF: 2:00 - 4:30PM ; T:11:00-12:00 or by appointment"
+        app:layout_constraintTop_toBottomOf="@id/text_layout"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="#514E4E"
+        android:id="@+id/id_officehours"
+        android:layout_height="wrap_content"/>
+
     
 
 

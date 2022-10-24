@@ -107,6 +107,16 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_height="wrap_content"/>
 
-   
+    <TextView
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/id_hall"
+        android:text="Tel: (660) 562-0803"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/id_tel"
+        android:textColor="#514E4E"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

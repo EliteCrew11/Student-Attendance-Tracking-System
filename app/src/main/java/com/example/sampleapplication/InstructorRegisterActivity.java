@@ -28,7 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+
 public class InstructorRegisterActivity extends AppCompatActivity {
+
 
     TextView spinner_btn, text_studentid;
     ImageView back;
@@ -37,6 +39,7 @@ public class InstructorRegisterActivity extends AppCompatActivity {
     FirebaseAuth auth;
     ProgressDialog progressDialog;
     MaterialCheckBox javaCourse, pmCourse, gdpCourse, bigdataCourse;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -161,8 +164,6 @@ public class InstructorRegisterActivity extends AppCompatActivity {
                         }
                         }
 
-                        
-
                 } catch (Exception exception) {
                     Toast.makeText(InstructorRegisterActivity.this, "Try again after sometime", Toast.LENGTH_LONG).show();
                 }
@@ -175,3 +176,4 @@ public class InstructorRegisterActivity extends AppCompatActivity {
 
 
 }
+

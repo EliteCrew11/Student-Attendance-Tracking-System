@@ -17,6 +17,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.ktx.Firebase;
 
 public class ResetActivity extends AppCompatActivity {
 
@@ -25,6 +27,7 @@ public class ResetActivity extends AppCompatActivity {
     TextView text_facultyID;
     EditText enterNewPasswordFaculty, enterconfirmPasswordFaculty, id_enterFaculty;
     ConstraintLayout id_reset;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,7 +109,7 @@ public class ResetActivity extends AppCompatActivity {
                                 }
                             });
                         }
-                        }else{
+                    }else{
                         Toast.makeText(ResetActivity.this, "No Internet Connection..", Toast.LENGTH_SHORT).show();
                     }
 
@@ -117,6 +120,7 @@ public class ResetActivity extends AppCompatActivity {
             }
         });
 
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,5 +130,3 @@ public class ResetActivity extends AppCompatActivity {
 
     }
 }
-
-

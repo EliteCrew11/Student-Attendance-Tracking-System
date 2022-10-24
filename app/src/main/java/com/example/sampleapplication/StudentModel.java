@@ -44,5 +44,4 @@ public class StudentModel {
     public void setExcluded(String excluded) {
         this.excluded = excluded;
     }
-   
 }

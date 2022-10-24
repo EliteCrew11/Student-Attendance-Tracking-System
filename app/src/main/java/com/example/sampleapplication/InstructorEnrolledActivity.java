@@ -19,13 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sampleapplication.professor.InstructorCourseAdapter;
 import com.example.sampleapplication.student.StudentCourseAdapter;
-import com.google.firebase.auth.FirebaseAuth;	
-import com.google.firebase.database.DataSnapshot;	
-import com.google.firebase.database.DatabaseError;	
-import com.google.firebase.database.DatabaseReference;	
-import com.google.firebase.database.FirebaseDatabase;	
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -112,27 +111,29 @@ public class InstructorEnrolledActivity extends AppCompatActivity {
 
             }
 
-            @Override	
-            public void onCancelled(@NonNull DatabaseError error) {	
-                progressDialog.cancel();	
-                Toast.makeText(InstructorEnrolledActivity.this, "Data Failed", Toast.LENGTH_LONG).show();	
-            }	
-        });	
-    }	
-    private void updatePassword() {	
-        String password = getIntent().getStringExtra("PASSWORD");	
-        FirebaseDatabase database = FirebaseDatabase.getInstance();	
-        DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");	
-        String studentID = FirebaseAuth.getInstance().getUid();	
-        try {	
-            Map<String, Object> hashMap = new HashMap<>();	
-            hashMap.put("pass", password);	
-            myRef.child(studentID).updateChildren(hashMap);	
-        } catch (Exception e) {	
-        }	
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                progressDialog.cancel();
+                Toast.makeText(InstructorEnrolledActivity.this, "Data Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
-            
+    private void updatePassword() {
+        String password = getIntent().getStringExtra("PASSWORD");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");
+        String studentID = FirebaseAuth.getInstance().getUid();
+        try {
+            Map<String, Object> hashMap = new HashMap<>();
+            hashMap.put("pass", password);
+            myRef.child(studentID).updateChildren(hashMap);
+        } catch (Exception e) {
+
+        }
+    }
+
     @Override
     public void onBackPressed() {
 

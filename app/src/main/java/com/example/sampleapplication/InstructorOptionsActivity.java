@@ -15,6 +15,7 @@ public class InstructorOptionsActivity extends AppCompatActivity {
     ConstraintLayout id_scanQRCode,id_showAttendence;
     TextView id_selectedCourse;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,4 @@ public class InstructorOptionsActivity extends AppCompatActivity {
         });
     }
 
-
-
-    }
+}

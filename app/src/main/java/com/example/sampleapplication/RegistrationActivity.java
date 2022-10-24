@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+
     TextView text_studentid;
     ImageView back;
     EditText enterFirstName, enterLastName, enterStudentID, enterPassword, enterConfirmPassword;
@@ -38,6 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
     FirebaseAuth auth;
     ProgressDialog progressDialog;
     MaterialCheckBox javaCourse, pmCourse, gdpCourse, bigdataCourse;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class RegistrationActivity extends AppCompatActivity {
         gdpCourse = findViewById(R.id.gdpCourse);
         bigdataCourse = findViewById(R.id.bigdataCourse);
 
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +70,7 @@ public class RegistrationActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 try {
 
@@ -99,6 +103,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         bigdata = "Big Data (13800),";
                         course = course + bigdata;
                     }
+
 
                     if (TextUtils.isEmpty(fname)) {
                         Toast.makeText(RegistrationActivity.this, "Enter FirstName", Toast.LENGTH_LONG).show();
@@ -156,9 +161,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                             }
                                         }
                                     });
-
-
-                                    }else{
+                        }else{
                             Toast.makeText(RegistrationActivity.this, "No Internet Connection..", Toast.LENGTH_LONG).show();
                         }
 
@@ -175,6 +178,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+
+
     private void getEmailVerification(FirebaseAuth auth, String sID) {
         FirebaseUser firebaseAuth = FirebaseAuth.getInstance().getCurrentUser();
         firebaseAuth.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -188,6 +193,5 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
-                        
 
 }

@@ -8,7 +8,7 @@ public class CommonUtils {
 
     public static boolean isConnectedToInternet(Context context){
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        
+
         if (connectivityManager!= null){
             NetworkInfo[] info =  connectivityManager.getAllNetworkInfo();
             if (info!=null){

@@ -32,4 +32,27 @@ import java.text.NumberFormat;
 
 public class QRGeneratorActivity extends AppCompatActivity {
 
+    private int STORAGE_PERMISSION_CODE = 1;
+    private int CAMERA_PERMISSION_CODE = 2;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_qrgenerator);
+        requestPermissios(QRGeneratorActivity.this);
+
+
+        try {
+         //   String subject=getIntent().getStringExtra("QRCODE");
+            SharedPreferences sharedpreferences =getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+            String subject = sharedpreferences.getString("CourseType", "");
+
+            generateQRCode(subject);
+            showTimer();
+        } catch (Exception e) {
+            Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
     

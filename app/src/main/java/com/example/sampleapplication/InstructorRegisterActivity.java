@@ -120,6 +120,47 @@ public class InstructorRegisterActivity extends AppCompatActivity {
                     }  else {
                         String list = course;
 
+                        progressDialog.show();
+                        if (CommonUtils.isConnectedToInternet(InstructorRegisterActivity.this)) {
+                            auth.createUserWithEmailAndPassword(sID, confirmpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressDialog.cancel();
+                                    if (task.isSuccessful()) {
+                                        //            Toast.makeText(RegistrationActivity.this,"Registration Successfull",Toast.LENGTH_LONG).show()
+                                        Toast.makeText(InstructorRegisterActivity.this, "Registration Successfull", Toast.LENGTH_LONG).show();
+
+                                        try {
+                                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                            DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");
+                                            String studentID = FirebaseAuth.getInstance().getUid();
+
+                                            RegistrationModel registrationModel = new RegistrationModel(fname, lname, sID, pass, list,"instructor");
+                                            myRef.child(studentID).setValue(registrationModel);
+
+                                        } catch (Exception e) {
+
+                                        }
+
+                                        Intent intent = new Intent(InstructorRegisterActivity.this, ProfessorLogin.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    } else {
+                                        task.addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(InstructorRegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        }else{
+                            Toast.makeText(InstructorRegisterActivity.this, "No Internet Connection..", Toast.LENGTH_SHORT).show();
+                        }
+                        }
+
                         
 
                 } catch (Exception exception) {

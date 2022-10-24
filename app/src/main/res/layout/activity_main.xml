@@ -6,18 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:layout_width="match_parent"
         android:alpha="0.5"
         android:background="@drawable/northwest"
         android:layout_height="match_parent"/>
-
     <View
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/id_dividescreen"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="1dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:text="@string/are_you"
@@ -30,7 +31,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_height="wrap_content"/>
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-     <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:text="Or"
         android:textColor="@color/black"
@@ -66,7 +66,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_height="wrap_content"/>
 
-     <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/_30sdp"

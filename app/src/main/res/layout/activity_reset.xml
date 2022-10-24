@@ -7,7 +7,8 @@
     android:background="@color/white"
     tools:context=".ResetActivity">
 
-<TextView
+
+    <TextView
         android:layout_width="wrap_content"
         android:text="Reset Password"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +68,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-         <TextView
+        <TextView
             android:id="@+id/text_newpassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -117,9 +118,99 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-       
+        <TextView
+            android:id="@+id/text_confirmpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="@string/confirm_password"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_facultyNewPassword_layout" />
 
-    
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/id_facultyconfirmPassword_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginRight="@dimen/_30sdp"
+            android:background="@drawable/rectangle"
+            android:backgroundTint="#DFDBDB"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/text_confirmpassword">
+
+            <EditText
+                android:id="@+id/id_enterConfirmPasswordFaculty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textColor="@color/black"
+
+                android:inputType="textPassword"
+                android:textCursorDrawable="@drawable/color_cursor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/id_showconfirmpassword"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/eye_close_password"
+
+                android:tag="close"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/id_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:background="@drawable/rectangle"
+            android:backgroundTint="@color/bluecolor"
+            android:orientation="horizontal"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id_facultyconfirmPassword_layout">
+
+
+            <TextView
+                android:id="@+id/text_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_baseline_refresh_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/text_login"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

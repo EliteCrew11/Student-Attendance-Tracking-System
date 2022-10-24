@@ -6,6 +6,7 @@
     android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".QRGeneratorActivity">
+
     <ImageView
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"

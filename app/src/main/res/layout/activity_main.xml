@@ -88,6 +88,26 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
-
+<TextView
+    android:layout_width="@dimen/_70sdp"
+    app:layout_constraintBottom_toTopOf="@id/line"
+    app:layout_constraintRight_toRightOf="parent"
+    android:textColor="@color/bluecolor"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:gravity="center"
+    android:text="Admin"
+    android:textSize="@dimen/_16sdp"
+    android:id="@+id/adminbtn"
+    android:layout_height="wrap_content"/>
+    <View
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="1dp"
+        android:background="@color/bluecolor"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:id="@+id/line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

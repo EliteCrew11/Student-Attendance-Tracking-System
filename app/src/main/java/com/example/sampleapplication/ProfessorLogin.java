@@ -37,6 +37,9 @@ public class ProfessorLogin extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
 
+    String username = "teach@gmail.com";
+    String pass = "123456";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,7 +115,9 @@ public class ProfessorLogin extends AppCompatActivity {
                     String emailUsername = enter_username.getText().toString().trim();
                     String passwordText = enter_paswword.getText().toString();
 
-
+                   /*  emailUsername="teach@gmail.com";
+                     passwordText="123456";
+*/
                     if (TextUtils.isEmpty(emailUsername)) {
                         Toast.makeText(ProfessorLogin.this, "Enter Mail", Toast.LENGTH_LONG).show();
                     } else if (TextUtils.isEmpty(passwordText)) {

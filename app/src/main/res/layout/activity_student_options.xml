@@ -65,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_22sdp"
+        android:visibility="gone"
         android:layout_marginRight="@dimen/_20sdp"
         android:background="@drawable/rectangle"
         android:backgroundTint="@color/bluecolor"

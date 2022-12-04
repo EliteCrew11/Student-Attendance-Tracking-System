@@ -1,7 +1,9 @@
 package com.example.sampleapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -107,17 +109,22 @@ public class ProfessorLogin extends AppCompatActivity {
 
                 try {
 
-
                     progressDialog = new ProgressDialog(ProfessorLogin.this);
                     progressDialog.setMessage("Loading....");
 
+                /* enter_paswword.setText("123456");
+                 enter_username.setText("hoot@nwmissouri.edu");
+*/
+
 
                     String emailUsername = enter_username.getText().toString().trim();
-                    String passwordText = enter_paswword.getText().toString();
+                    String passwordText = enter_paswword.getText().toString().trim();
 
                    /*  emailUsername="teach@gmail.com";
                      passwordText="123456";
-*/
+                     */
+
+
                     if (TextUtils.isEmpty(emailUsername)) {
                         Toast.makeText(ProfessorLogin.this, "Enter Mail", Toast.LENGTH_LONG).show();
                     } else if (TextUtils.isEmpty(passwordText)) {
@@ -134,7 +141,7 @@ public class ProfessorLogin extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             progressDialog.cancel();
                                             if (task.isSuccessful()) {
-                                                verifyUserType(passwordText);
+                                                verifyUserType(passwordText,emailUsername);
                                             } else {
                                                 task.addOnFailureListener(new OnFailureListener() {
                                                     @Override
@@ -160,7 +167,7 @@ public class ProfessorLogin extends AppCompatActivity {
     }
 
 
-    private void verifyUserType(String passwordText) {
+    private void verifyUserType(String passwordText, String emailUsername) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");
         String studentID = FirebaseAuth.getInstance().getUid();
@@ -169,6 +176,11 @@ public class ProfessorLogin extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String userType = snapshot.child("type").getValue(String.class);
                 if (userType != null && userType.equals("instructor")) {
+
+                    SharedPreferences sharedpreferences =getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("EMAILID", emailUsername);
+                    editor.commit();
                     Intent intent = new Intent(ProfessorLogin.this, InstructorEnrolledActivity.class);
                     intent.putExtra("PASSWORD", passwordText.toString());
                     startActivity(intent);

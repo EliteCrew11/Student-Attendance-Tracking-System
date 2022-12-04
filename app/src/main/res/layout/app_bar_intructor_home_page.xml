@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
     tools:context=".professor.IntructorHomePage">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -17,7 +16,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#7A58DA"
+            android:background="#006648
+"
             app:popupTheme="@style/Theme.SampleApplication.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>

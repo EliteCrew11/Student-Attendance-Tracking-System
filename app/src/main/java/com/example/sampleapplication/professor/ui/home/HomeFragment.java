@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
 
     TextView id_instructorName;
     TextView id_instructorEmail;
-    TextView id_instructorTimes;
+    TextView id_instructorTimes,description_text,hrss_text;
     TextView id_officehours;
     TextView id_hall;
     TextView id_tel;
@@ -40,9 +40,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_instructor, container, false);
         id_tel = view.findViewById(R.id.id_tel);
-        id_hall = view.findViewById(R.id.id_hall);
         id_officehours = view.findViewById(R.id.id_officehours);
-        id_instructorTimes = view.findViewById(R.id.id_instructorTimes);
+        hrss_text = view.findViewById(R.id.hrss_text);
+        description_text = view.findViewById(R.id.description_text);
         id_instructorEmail = view.findViewById(R.id.id_instructorEmail);
         id_instructorName = view.findViewById(R.id.id_instructorName);
         return view;
@@ -61,21 +61,47 @@ public class HomeFragment extends Fragment {
         progressDialog.show();
         SharedPreferences sharedpreferences = getActivity().getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
         String subject = sharedpreferences.getString("CourseType", "");
+        String emailiddd = sharedpreferences.getString("EMAILID", "");
         String course = checkCourse(subject);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("InstructorDetails").child("Details").child(course);
+        DatabaseReference myRef = database.getReference("InstructorDetails").child("Details");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 progressDialog.cancel();
                 Log.d("Student Course", snapshot.toString());
-                InstrcutorDetailsModel instrcutorDetailsModel = snapshot.getValue(InstrcutorDetailsModel.class);
-                if (instrcutorDetailsModel != null) {
-                    id_instructorName.setText(instrcutorDetailsModel.getInstructor());
-                    id_instructorEmail.setText(instrcutorDetailsModel.getEmail());
-                    id_officehours.setText("Office hours: MF: " + instrcutorDetailsModel.getOfficeMWF() + " ; T:" + instrcutorDetailsModel.getOfficeTR() + " or by appointment");
-                    id_tel.setText("Tel :" + instrcutorDetailsModel.getPhone());
+                for (DataSnapshot snapshot1:snapshot.getChildren()){
+                    InstrcutorDetailsModel instrcutorDetailsModel = snapshot1.getValue(InstrcutorDetailsModel.class);
+                    if (instrcutorDetailsModel != null) {
+                        String email=instrcutorDetailsModel.getEmail().toString().toLowerCase();
+                        if(email.equalsIgnoreCase(emailiddd.toLowerCase())){
+                            id_instructorEmail.setText(instrcutorDetailsModel.getEmail());
+                            id_instructorName.setText(instrcutorDetailsModel.getInstructor());
+                            id_tel.setText(instrcutorDetailsModel.getPhone());
+                        }
+
+                    }
                 }
+
+                if(snapshot.hasChildren()){
+                    myRef.child(course).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            InstrcutorDetailsModel instrcutorDetailsModel = snapshot.getValue(InstrcutorDetailsModel.class);
+                            if (instrcutorDetailsModel != null) {
+                              description_text.setText(instrcutorDetailsModel.getDescription());
+                                hrss_text.setText("MF: " + instrcutorDetailsModel.getOfficeMWF() + " ; T:" + instrcutorDetailsModel.getOfficeTR() + " or by appointment");
+                              }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+
 
             }
 
@@ -92,13 +118,12 @@ public class HomeFragment extends Fragment {
             return "java";
         } else if (subject.toLowerCase().contains("gdp")) {
             return "gdp";
-        } else if (subject.toLowerCase().contains("Big")) {
+        } else if (subject.contains("Big Data (13800)")) {
             return "Big";
-        } else if (subject.toLowerCase().contains("Project")) {
+        } else if (subject.contains("Project Management (13800)")) {
             return "Project";
         } else {
             return "java";
         }
-
     }
 }

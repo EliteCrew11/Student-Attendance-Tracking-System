@@ -16,17 +16,45 @@
         android:id="@+id/img_result_qr"
         android:layout_height="match_parent"/>
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/incrementTimer"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="seconds remaining: "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            android:id="@+id/remaingTime"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintLeft_toRightOf="@id/remaingTime"
+            android:text="Timer"
+            android:id="@+id/timerr"
+            android:textColor="#E80A0A"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
         android:layout_width="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Extend Timer"
+        android:id="@+id/incrementTimer"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="@dimen/_50sdp"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Timer"
-        android:id="@+id/timerr"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

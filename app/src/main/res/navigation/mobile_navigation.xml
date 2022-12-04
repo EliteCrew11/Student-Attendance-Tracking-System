@@ -8,23 +8,25 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.sampleapplication.student.ui.home.HomeStudent"
-        android:label="Graduate Direct Project II"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.sampleapplication.student.ui.gallery.StudentPeople"
-        android:label="People"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.sampleapplication.student.ui.slideshow.StudentScanQR"
-        android:label="Scan QR Code"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/nav_studentAttendence"
         android:name="com.example.sampleapplication.student.ui.attendencestudent.StudenAttendence"
-        android:label="Attendence Report"
         tools:layout="@layout/fragment_nav_student_attendence" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.sampleapplication.professor.ui.profile.Instructorprofile"
+        tools:layout="@layout/fragment_instructorprofile" />
+
 </navigation>

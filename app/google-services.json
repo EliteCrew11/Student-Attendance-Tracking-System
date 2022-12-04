@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "751905847609",
-    "project_id": "qrattendence-759ed",
-    "storage_bucket": "qrattendence-759ed.appspot.com"
+    "project_number": "323234411801",
+    "project_id": "attend-a2953",
+    "storage_bucket": "attend-a2953.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:751905847609:android:03d25d34ad637d6b2310e8",
+        "mobilesdk_app_id": "1:323234411801:android:d6cba788d1bae21f1cc188",
         "android_client_info": {
           "package_name": "com.example.sampleapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "751905847609-o5v85nfo69cumba3s2ran7vnhe8jvim1.apps.googleusercontent.com",
+          "client_id": "323234411801-uhoulqt3i06q73p8om1fbj5d45g7q3gl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD45fe4hXx0VMWLQDl1ibuwhH1hwe-VrVo"
+          "current_key": "AIzaSyB0VFehnV5WEPaTZ2Cl5V9_xQChjzGj5_k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "751905847609-o5v85nfo69cumba3s2ran7vnhe8jvim1.apps.googleusercontent.com",
+              "client_id": "323234411801-uhoulqt3i06q73p8om1fbj5d45g7q3gl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

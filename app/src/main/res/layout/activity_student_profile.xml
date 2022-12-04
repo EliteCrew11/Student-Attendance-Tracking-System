@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".professor.StudentProfile">
+
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:background="@drawable/searvch_vbg"
+        app:layout_constraintTop_toTopOf="parent"
+        android:queryHint="Search here...."
+        android:iconifiedByDefault="false"
+        android:searchIcon="@drawable/ic_baseline_search_24"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_margin="@dimen/_6sdp"
+        android:id="@+id/id_searchview"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/id_searchview"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/studentheader_textlayout"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="@color/white"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="top"
+                android:background="@color/white"
+                android:text="Present"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="@dimen/_18sdp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_absent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="top"
+                android:background="@color/white"
+                android:text="Absent"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_late"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="top"
+                android:background="@color/white"
+                android:text="Late"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/studentprofile_list"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/studentheader_textlayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

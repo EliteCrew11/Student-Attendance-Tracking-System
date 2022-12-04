@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.sampleapplication.student.models.StudentPieModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +40,8 @@ public class StudentLogin extends AppCompatActivity {
     ConstraintLayout login;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
+    String username = "stu@gmail.com";
+    String pass = "123456";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,29 +106,28 @@ public class StudentLogin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 try {
-
-
                     progressDialog = new ProgressDialog(StudentLogin.this);
                     progressDialog.setMessage("Loading....");
 
+                   // _enter_username.setText("stu@gmail.com");
+                    //enter_paswword.setText("123456");
 
-                    String emailUsername = _enter_username.getText().toString();
-                    String passwordText = enter_paswword.getText().toString();
-
-
+                  /*  _enter_username.setText("s545610@nwmissouri.edu");
+                    enter_paswword.setText("123456");
+                  */  String emailUsername = _enter_username.getText().toString().trim();
+                    String passwordText = enter_paswword.getText().toString().trim();
 
                     if (TextUtils.isEmpty(emailUsername)) {
                         Toast.makeText(StudentLogin.this, "Enter Mail", Toast.LENGTH_LONG).show();
                     } else if (TextUtils.isEmpty(passwordText)) {
-                        Toast.makeText(StudentLogin.this, "Enter password", Toast.LENGTH_LONG)
-                                .show();
+                        Toast.makeText(StudentLogin.this, "Enter password", Toast.LENGTH_LONG).show();
                     } else {
                         progressDialog.show();
 
-
                         if (CommonUtils.isConnectedToInternet(StudentLogin.this)) {
-
+                            //    mAuth.signInWithEmailAndPassword(emailUsername, passwordText)
                             mAuth.signInWithEmailAndPassword(emailUsername, passwordText)
                                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                         @Override
@@ -157,6 +160,7 @@ public class StudentLogin extends AppCompatActivity {
 
 
     }
+
 
     private void verifyUserType(String passwordText) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();

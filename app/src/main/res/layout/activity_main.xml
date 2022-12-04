@@ -8,10 +8,11 @@
 
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:alpha="0.5"
-        android:background="@drawable/northwest"
-        android:layout_height="match_parent"/>
+        android:background="@drawable/northwest" />
     <View
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -31,26 +32,30 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_height="wrap_content"/>
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_8sdp"
         android:id="@+id/id_instructor_layout"
-        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/rectangle"
-        app:layout_constraintTop_toBottomOf="@id/id_areyou_text"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@id/id_areyou_text">
+
         <TextView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Instructor"
-            android:textSize="@dimen/_15sdp"
-            android:paddingBottom="@dimen/_8sdp"
             android:paddingTop="@dimen/_8sdp"
-            android:layout_height="wrap_content"/>
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Instructor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TextView
@@ -67,47 +72,64 @@
         android:layout_height="wrap_content"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_8sdp"
         android:id="@+id/id_student_layout"
-        android:layout_marginRight="@dimen/_30sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/rectangle"
-        app:layout_constraintTop_toBottomOf="@id/id_or_text"
-        android:layout_height="wrap_content">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@id/id_or_text">
+
         <TextView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Student"
-            android:textSize="@dimen/_15sdp"
-            android:paddingBottom="@dimen/_8sdp"
             android:paddingTop="@dimen/_8sdp"
-            android:layout_height="wrap_content"/>
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Student"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 <TextView
     android:layout_width="@dimen/_70sdp"
     app:layout_constraintBottom_toTopOf="@id/line"
     app:layout_constraintRight_toRightOf="parent"
-    android:textColor="@color/bluecolor"
+    android:textColor="#006648"
     app:layout_constraintLeft_toLeftOf="parent"
     android:gravity="center"
     android:text="Admin"
+    android:textStyle="bold"
     android:textSize="@dimen/_16sdp"
     android:id="@+id/adminbtn"
     android:layout_height="wrap_content"/>
     <View
         android:layout_width="@dimen/_70sdp"
         android:layout_height="1dp"
-        android:background="@color/bluecolor"
+        android:background="#006648"
         android:layout_marginBottom="@dimen/_5sdp"
         android:id="@+id/line"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
     />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="365dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:srcCompat="@drawable/mainlogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

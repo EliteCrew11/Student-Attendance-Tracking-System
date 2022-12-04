@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.sampleapplication.student.models.StudentPieModel;
+import com.example.sampleapplication.student.models.StudentRegistrationModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +28,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class InstructorRegisterActivity extends AppCompatActivity {
@@ -87,22 +93,30 @@ public class InstructorRegisterActivity extends AppCompatActivity {
                     String gdp = "";
                     String bigdata = "";
                     String course = "";
+                    ArrayList<String> arrayList=new ArrayList<>();
 
                     if (javaCourse.isChecked()) {
                         java = "Java (13800),";
                         course = java;
+                        arrayList.add("Java (13800)");
                     }
                     if (pmCourse.isChecked()) {
                         pm = "Project Management (13800),";
                         course = course + pm;
+                        arrayList.add("Project Management (13800)");
+
                     }
                     if (gdpCourse.isChecked()) {
                         gdp = "GDP-1 (13800),";
                         course = course + gdp;
+                        arrayList.add("GDP-1 (13800)");
+
                     }
                     if (bigdataCourse.isChecked()) {
                         bigdata = "Big Data (13800),";
                         course = course + bigdata;
+                        arrayList.add("Big Data (13800)");
+
                     }
 
 
@@ -135,11 +149,26 @@ public class InstructorRegisterActivity extends AppCompatActivity {
 
                                         try {
                                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                            DatabaseReference myRef = database.getReference("UserDetails").child("Instructor");
-                                            String studentID = FirebaseAuth.getInstance().getUid();
+                                            String instructorUniqueID = FirebaseAuth.getInstance().getUid();
 
-                                            RegistrationModel registrationModel = new RegistrationModel(fname, lname, sID, pass, list,"instructor");
-                                            myRef.child(studentID).setValue(registrationModel);
+                                            // save Instructor details in firebase database
+                                            DatabaseReference instructormyRef = database.getReference("UserDetails").child("Instructor");
+                                            StudentRegistrationModel registrationModel = new StudentRegistrationModel(fname, lname, instructorUniqueID, sID, pass, list, "instructor");
+                                            instructormyRef.child(instructorUniqueID).setValue(registrationModel);
+
+                                            // get today day
+                                            Date c = Calendar.getInstance().getTime();
+                                            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                                            String formattedDate = df.format(c);
+
+                                            // create attendence list for instructor
+                                            DatabaseReference instructorAttendenceListReference = database.getReference("Attendence").child("instructorAttendenceCount");
+
+
+                                            for (int i=0;i<arrayList.size();i++){
+                                                StudentPieModel studentPieModel=new StudentPieModel("0","0","0");
+                                                instructorAttendenceListReference.child(instructorUniqueID).child(arrayList.get(i)).child(formattedDate).setValue(studentPieModel);
+                                            }
 
                                         } catch (Exception e) {
 

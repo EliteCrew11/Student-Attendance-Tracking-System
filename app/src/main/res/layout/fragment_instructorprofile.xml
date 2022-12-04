@@ -1,14 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="@dimen/_6sdp"
     tools:context=".professor.ui.profile.Instructorprofile">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:text="faculty name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_18sdp"
+        android:id="@+id/facultyName_text"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/profile_bio_layout"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/facultyName_text"
+        android:layout_height="@dimen/_100sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:id="@+id/instructor_pic"
+            android:src="@drawable/ic_logout"
+            android:layout_height="@dimen/_100sdp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:textStyle="bold"
+                android:text="faculty name"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/black"
+                android:id="@+id/facultyName"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:text="faculty name"
+                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/black"
+                android:id="@+id/facultytype"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:visibility="gone"
+                android:text="EDUCATION"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/profile_bio_layout"
+        android:layout_height="wrap_content">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:paddingLeft="@dimen/_20sdp"
+                 android:textColor="#757575"
+                 android:layout_width="wrap_content"
+                 android:textSize="@dimen/_15sdp"
+                 android:text="Mail :"
+                 android:layout_height="wrap_content"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:textSize="@dimen/_15sdp"
+                 android:layout_marginLeft="@dimen/_39sdp"
+                 android:textColor="@color/black"
+                 android:id="@+id/facMail"
+                 android:text="Mail "
+                 android:layout_height="match_parent"/>
+         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:paddingLeft="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:textColor="#757575"
+
+                android:textSize="@dimen/_15sdp"
+                android:text="Phone :"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/facphone"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_26sdp"
+
+                android:textColor="@color/black"
+                android:text="Office :"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="match_parent">
+            <TextView
+                android:paddingLeft="@dimen/_20sdp"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="#757575"
+                android:text="Office :"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/_30sdp"
+
+                android:text="Mail :"
+                android:id="@+id/facoffice"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

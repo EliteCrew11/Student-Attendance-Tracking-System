@@ -22,7 +22,6 @@
     <TextView
         android:layout_width="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Dr.Aziz Fellah"
         android:textStyle="bold"
         android:id="@+id/id_instructorName"
         android:textColor="@color/black"
@@ -44,7 +43,6 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="afellah@nwmissouri.edu"
         android:textStyle="bold"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
@@ -60,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@id/id_instructorEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="@dimen/_10sdp"
-        android:text="Lecture times: "
+        android:text="Description: "
         android:textColor="#514E4E"
         android:id="@+id/textTimes"
         android:textSize="@dimen/_16sdp"
@@ -75,12 +73,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
-            android:text="MWF: 9:00-09:50 AM GS 1050"
             android:textStyle="bold"
             android:layout_marginRight="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:id="@+id/id_instructorTimes"
+            android:id="@+id/description_text"
             android:textColor="@color/black"
             android:textSize="@dimen/_16sdp"
             android:layout_height="wrap_content"/>
@@ -89,34 +86,57 @@
 
 <TextView
     android:layout_width="match_parent"
-    android:text="Office hours: MF: 2:00 - 4:30PM ; T:11:00-12:00 or by appointment"
     app:layout_constraintTop_toBottomOf="@id/text_layout"
     android:layout_marginTop="@dimen/_10sdp"
+    android:text="Hours :"
     android:textSize="@dimen/_16sdp"
     android:id="@+id/id_officehours"
     android:textColor="#514E4E"
     android:layout_height="wrap_content"/>
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/hrs_layout"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/_10sdp"
         app:layout_constraintTop_toBottomOf="@id/id_officehours"
-        android:text="Office Colden Hall 2220"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:id="@+id/id_hall"
-        android:textSize="@dimen/_16sdp"
-        android:textColor="#514E4E"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:id="@+id/hrss_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16sdp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
 
     <TextView
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/id_hall"
-        android:text="Tel: (660) 562-0803"
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/hrs_layout"
         android:layout_marginTop="@dimen/_10sdp"
-        android:id="@+id/id_tel"
+        android:id="@+id/id_tel_text"
         android:textColor="#514E4E"
+        android:text="TEl :"
         android:textSize="@dimen/_16sdp"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/hrs_layout"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/id_tel"
+        android:layout_marginLeft="@dimen/_6sdp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/_16sdp"
+        app:layout_constraintLeft_toRightOf="@id/id_tel_text"
         android:layout_height="wrap_content"/>
 
 

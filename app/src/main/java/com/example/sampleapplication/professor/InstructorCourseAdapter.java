@@ -41,7 +41,18 @@ public class InstructorCourseAdapter extends RecyclerView.Adapter<InstructorCour
 
     @Override
     public void onBindViewHolder(@NonNull InstructorCourseAdapter.ViewHolder holder, int position) {
-        holder.textView.setText(listdata.get(position).toLowerCase());
+        if(listdata.get(position).contains("Java")){
+            holder.textView.setText("Java (13204)");
+        } else  if(listdata.get(position).contains("Project")){
+            holder.textView.setText("Project Management (23123)");
+        }
+        else  if(listdata.get(position).contains("GDP")){
+            holder.textView.setText("GDP (13896)");
+        } else  if(listdata.get(position).contains("Big")){
+            holder.textView.setText("Big Data (13900)");
+        } else {
+            holder.textView.setText(listdata.get(position).toLowerCase());
+        }
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

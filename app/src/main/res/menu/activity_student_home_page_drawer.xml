@@ -20,9 +20,6 @@
             android:id="@+id/nav_instructorAttendence"
             android:icon="@drawable/document"
             android:title="Attendence Report" />
-        <item
-            android:id="@+id/nav_profile"
-            android:icon="@drawable/profile_base"
-            android:title="Profile" />
+
           </group>
 </menu>

@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.sampleapplication.InstructorEnrolledActivity;
@@ -33,10 +34,10 @@ public class HomeStudent extends Fragment {
 
     TextView id_instructorName;
     TextView id_instructorEmail;
-    TextView id_instructorTimes;
+    TextView id_instructorTimes,description_text;
     TextView id_officehours;
     TextView id_hall;
-    TextView id_tel;
+    TextView id_tel,hrss_text;
     ProgressDialog progressDialog;
 
 
@@ -45,10 +46,11 @@ public class HomeStudent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+     //   ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("Hello");
         id_tel = view.findViewById(R.id.id_tel);
-        id_hall = view.findViewById(R.id.id_hall);
         id_officehours = view.findViewById(R.id.id_officehours);
-        id_instructorTimes = view.findViewById(R.id.id_instructorTimes);
+        description_text = view.findViewById(R.id.description_text);
+        hrss_text = view.findViewById(R.id.hrss_text);
         id_instructorEmail = view.findViewById(R.id.id_instructorEmail);
         id_instructorName = view.findViewById(R.id.id_instructorName);
         return view;
@@ -78,8 +80,9 @@ public class HomeStudent extends Fragment {
                 if (instrcutorDetailsModel != null) {
                     id_instructorName.setText(instrcutorDetailsModel.getInstructor());
                     id_instructorEmail.setText(instrcutorDetailsModel.getEmail());
-                    id_officehours.setText("Office hours: MF: " + instrcutorDetailsModel.getOfficeMWF() + " ; T:" + instrcutorDetailsModel.getOfficeTR() + " or by appointment");
-                    id_tel.setText("Tel :" + instrcutorDetailsModel.getPhone());
+                    description_text.setText(instrcutorDetailsModel.getDescription());
+                    hrss_text.setText("MF: " + instrcutorDetailsModel.getOfficeMWF() + " ; T:" + instrcutorDetailsModel.getOfficeTR() + " or by appointment");
+                    id_tel.setText(instrcutorDetailsModel.getPhone());
                 }
 
             }
@@ -97,9 +100,9 @@ public class HomeStudent extends Fragment {
             return "java";
         } else if (subject.toLowerCase().contains("gdp")) {
             return "gdp";
-        } else if (subject.toLowerCase().contains("Big")) {
+        } else if (subject.contains("Big Data (13800)")) {
             return "Big";
-        } else if (subject.toLowerCase().contains("Project")) {
+        } else if (subject.contains("Project Management (13800)")) {
             return "Project";
         } else {
             return "java";

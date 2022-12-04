@@ -20,14 +20,24 @@
         android:theme="@style/Theme.SampleApplication"
         tools:targetApi="31">
         <activity
+            android:name=".professor.InstructorStudentProfile"
+            android:exported="false" />
+        <activity
+            android:name=".admin.StudentProfileUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminLogin"
+            android:exported="false" />
+        <activity
+            android:name=".professor.StudentProfile"
+            android:exported="false" />
+        <activity
             android:name=".professor.IntructorHomePage"
             android:exported="false"
             android:label="@string/title_activity_intructor_home_page"
-            android:theme="@style/Theme.SampleApplication.NoActionBar" />
-        <activity
-            android:name=".student.StudentHomePage"
-            android:exported="false"
-            android:label="@string/title_activity_student_home_page"
             android:theme="@style/Theme.SampleApplication.NoActionBar" />
         <activity
             android:name=".AllStudentsAttendence"
@@ -75,6 +85,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ProfessorLogin"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".student.StudentHomePage"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

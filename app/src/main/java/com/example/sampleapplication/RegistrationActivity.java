@@ -17,6 +17,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.sampleapplication.student.models.StudentCourse;
+import com.example.sampleapplication.student.models.StudentCourseAttendence;
+import com.example.sampleapplication.student.models.StudentCourseList;
+import com.example.sampleapplication.student.models.StudentPieModel;
+import com.example.sampleapplication.student.models.StudentRegistrationModel;
+import com.example.sampleapplication.student.models.SubjectAttendence;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +34,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -86,22 +96,26 @@ public class RegistrationActivity extends AppCompatActivity {
                     String gdp = "";
                     String bigdata = "";
                     String course = "";
-
+                    ArrayList<String> arrayList = new ArrayList<>();
                     if (javaCourse.isChecked()) {
                         java = "Java (13800),";
                         course = java;
+                        arrayList.add("Java (13800)");
                     }
                     if (pmCourse.isChecked()) {
                         pm = "Project Management (13800),";
                         course = course + pm;
+                        arrayList.add("Project Management (13800)");
                     }
                     if (gdpCourse.isChecked()) {
                         gdp = "GDP-1 (13800),";
                         course = course + gdp;
+                        arrayList.add("GDP-1 (13800)");
                     }
                     if (bigdataCourse.isChecked()) {
                         bigdata = "Big Data (13800),";
                         course = course + bigdata;
+                        arrayList.add("Big Data (13800)");
                     }
 
 
@@ -123,7 +137,8 @@ public class RegistrationActivity extends AppCompatActivity {
                         String list = course;
                         progressDialog.show();
 
-                        if(CommonUtils.isConnectedToInternet(RegistrationActivity.this)){
+
+                        if (CommonUtils.isConnectedToInternet(RegistrationActivity.this)) {
 
                             auth = FirebaseAuth.getInstance();
                             auth.createUserWithEmailAndPassword(sID, pass)
@@ -132,16 +147,34 @@ public class RegistrationActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             progressDialog.cancel();
                                             if (task.isSuccessful()) {
-                                                getEmailVerification(auth, sID);
+                                                // getEmailVerification(auth, sID);
 
                                                 Toast.makeText(RegistrationActivity.this, "Registration Successfull", Toast.LENGTH_LONG).show();
 
                                                 try {
+
                                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                                    DatabaseReference myRef = database.getReference("UserDetails").child("Student");
-                                                    String studentID = FirebaseAuth.getInstance().getUid();
-                                                    RegistrationModel registrationModel = new RegistrationModel(fname, lname, sID, pass, list,"student");
-                                                    myRef.child(studentID).setValue(registrationModel);
+                                                    String studentUniqueID = FirebaseAuth.getInstance().getUid();
+
+                                                    // save student details in firebase database
+
+                                                    DatabaseReference userDatabaseReference = database.getReference("UserDetails").child("Student");
+                                                    StudentRegistrationModel registrationModel = new StudentRegistrationModel(fname, lname, studentUniqueID, sID, pass, list, "student");
+                                                    userDatabaseReference.child(studentUniqueID).setValue(registrationModel);
+
+
+
+
+
+                                                    // create student attendence list in attendence table
+
+                                                    DatabaseReference studentAttendenceListReference = database.getReference("Attendence").child("studentAttendenceList");
+
+                                                    for (int i = 0; i < arrayList.size(); i++) {
+                                                        StudentPieModel studentPieModel = new StudentPieModel("0", "0", "0");
+                                                        studentAttendenceListReference.child(arrayList.get(i)).child(studentUniqueID).setValue(studentPieModel);
+                                                    }
+
 
                                                 } catch (Exception e) {
 
@@ -151,17 +184,17 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 startActivity(intent);
                                                 finish();
                                             } else {
-                                           task.addOnFailureListener(new OnFailureListener() {
-                                               @Override
-                                               public void onFailure(@NonNull Exception e) {
-                                                      Toast.makeText(RegistrationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                                               }
-                                           });
-                                           //     Toast.makeText(RegistrationActivity.this, "Registration UnSuccessfull", Toast.LENGTH_LONG).show();
+                                                task.addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        Toast.makeText(RegistrationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                                    }
+                                                });
+                                                //     Toast.makeText(RegistrationActivity.this, "Registration UnSuccessfull", Toast.LENGTH_LONG).show();
                                             }
                                         }
                                     });
-                        }else{
+                        } else {
                             Toast.makeText(RegistrationActivity.this, "No Internet Connection..", Toast.LENGTH_LONG).show();
                         }
 
@@ -180,6 +213,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
+/*
+
     private void getEmailVerification(FirebaseAuth auth, String sID) {
         FirebaseUser firebaseAuth = FirebaseAuth.getInstance().getCurrentUser();
         firebaseAuth.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -192,6 +227,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
     }
+*/
 
 
 }

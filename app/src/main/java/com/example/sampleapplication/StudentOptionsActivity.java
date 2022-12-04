@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.sampleapplication.student.StudentHomePage;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -51,8 +50,8 @@ public class StudentOptionsActivity extends AppCompatActivity {
         id_showAttendence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(StudentOptionsActivity.this, StudentHomePage.class);
-                startActivity(intent);
+        //        Intent intent =new Intent(StudentOptionsActivity.this, StudentHomePage.class);
+          //      startActivity(intent);
             }
         });
     }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/loginbackgroundimage"
     android:layout_height="match_parent"
     android:padding="@dimen/_5sdp">
 
@@ -13,7 +13,7 @@
         android:layout_height="@dimen/_45sdp"
         android:scaleType="fitXY"
         android:layout_margin="@dimen/_5sdp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/backimage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_person_24"
+        android:src="@drawable/studentlogo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_back" />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:text="@string/student_login"
-        android:textColor="@color/bluecolor"
+        android:textColor="#006648"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -132,13 +132,15 @@
         android:id="@+id/id_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="@dimen/_22sdp"
-        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_marginEnd="100dp"
         android:background="@drawable/rectangle"
-        android:backgroundTint="@color/bluecolor"
+        android:backgroundTint="#006648"
         android:orientation="horizontal"
         android:padding="@dimen/_4sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_instructorname">
 
 
@@ -158,6 +160,7 @@
         <ImageView
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/ic_baseline_login_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/text_login"
@@ -202,10 +205,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="@string/to_rest_your_password"
-            android:textSize="@dimen/_13sdp"
 
             android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp"
             app:layout_constraintLeft_toRightOf="@id/id_resetpassword"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -233,11 +237,11 @@
             android:id="@+id/id_createaccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="@string/create"
-            android:textColor="#54b500"
-            android:textStyle="bold"
+            android:textColor="@color/bluecolor"
             android:textSize="@dimen/_13sdp"
-
+            android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/text_noaccount"
             app:layout_constraintTop_toTopOf="parent" />
 

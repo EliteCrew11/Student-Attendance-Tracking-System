@@ -9,22 +9,26 @@
 
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
-        android:text="Reset Password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
+        android:text="Reset Password"
+        android:textColor="#006648"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/id_back"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/backimage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -178,7 +182,6 @@
             android:layout_marginTop="@dimen/_22sdp"
             android:layout_marginRight="@dimen/_20sdp"
             android:background="@drawable/rectangle"
-            android:backgroundTint="@color/bluecolor"
             android:orientation="horizontal"
             android:padding="@dimen/_4sdp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -190,6 +193,7 @@
                 android:id="@+id/text_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
                 android:text="Reset"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16sdp"
@@ -202,6 +206,7 @@
             <ImageView
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_baseline_refresh_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/text_login"
@@ -211,6 +216,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="250dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/passwordreset" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

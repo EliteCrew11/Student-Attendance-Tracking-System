@@ -1,7 +1,9 @@
 package com.example.sampleapplication;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sampleapplication.professor.InstructorCourseAdapter;
 import com.example.sampleapplication.student.StudentCourseAdapter;
+import com.example.sampleapplication.student.models.StudentRegistrationModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -90,12 +93,19 @@ public class InstructorEnrolledActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 progressDialog.cancel();
                 Log.d("Instructor Course", snapshot.toString());
-                RegistrationModel post = snapshot.getValue(RegistrationModel.class);
+                StudentRegistrationModel post = snapshot.getValue(StudentRegistrationModel.class);
                 course.clear();
-                String courseData = post.getCourse();
+                String courseData = post.getCourseList();
                 if(TextUtils.isEmpty(courseData)){
 
                 }else{
+                    SharedPreferences sharedpreferences =getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("TEACHERID", post.getUniqueKey().toString());
+                    editor.putString("TEACHERNAME", post.getLname().toString());
+                    editor.putString("TEACHERCOURSE", post.getCourseList().toString());
+                    editor.commit();
+
                     if (!courseData.isEmpty()) {
                         String arr[] = courseData.split(",");
                         for (String a : arr) {
@@ -127,7 +137,7 @@ public class InstructorEnrolledActivity extends AppCompatActivity {
         String studentID = FirebaseAuth.getInstance().getUid();
         try {
             Map<String, Object> hashMap = new HashMap<>();
-            hashMap.put("pass", password);
+            hashMap.put("password", password);
             myRef.child(studentID).updateChildren(hashMap);
         } catch (Exception e) {
 

@@ -24,14 +24,13 @@ public class AllStudentsAttendence extends AppCompatActivity {
 
     ArrayList<StudentModel> getData(){
         ArrayList<StudentModel> arrayList=new ArrayList<>();
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
-        arrayList.add(new StudentModel("ram","22","2","2"));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
+        arrayList.add(new StudentModel("ram","22","2","2","","",""));
         return arrayList;
     }
 

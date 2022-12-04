@@ -5,12 +5,21 @@ public class StudentModel {
     String present;
     String absent;
     String excluded;
+    String courseName;
+    String date;
+    String facultyName;
 
-    public StudentModel(String name, String present, String absent, String excluded) {
+    public StudentModel() {
+    }
+
+    public StudentModel(String name, String present, String absent, String excluded, String courseName, String date, String facultyName) {
         this.name = name;
         this.present = present;
         this.absent = absent;
         this.excluded = excluded;
+        this.courseName = courseName;
+        this.date = date;
+        this.facultyName = facultyName;
     }
 
     public String getName() {
@@ -43,5 +52,29 @@ public class StudentModel {
 
     public void setExcluded(String excluded) {
         this.excluded = excluded;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFacultyName() {
+        return facultyName;
+    }
+
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
     }
 }

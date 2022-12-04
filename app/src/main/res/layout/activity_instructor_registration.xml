@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/studentregistrationimage"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,46 +17,50 @@
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:src="@drawable/backimage"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <!--First Name-->
 
-    <TextView
-        android:id="@+id/text_firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_30sdp"
-        android:text="@string/first_name"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/id_back" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/firstname_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_2sdp"
-        android:layout_marginRight="@dimen/_30sdp"
-        android:background="@drawable/rectangle"
-        android:backgroundTint="#DFDBDB"
-        android:orientation="horizontal"
-        android:padding="@dimen/_8sdp"
-        app:layout_constraintTop_toBottomOf="@id/text_firstname">
-
-        <EditText
-            android:id="@+id/id_enterFirstName"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/text_firstname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textCursorDrawable="@drawable/color_cursor"
-            android:background="@null"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:layout_marginTop="70dp"
+            android:text="@string/first_name"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/firstname_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="37dp"
+            android:background="@drawable/rectangle"
+            android:backgroundTint="#DFDBDB"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_firstname">
+
+            <EditText
+                android:id="@+id/id_enterFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@drawable/color_cursor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--Last Name-->
 
@@ -66,8 +70,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:textColor="@color/black"
-
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="Last Name*"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/firstname_layout" />
@@ -104,7 +108,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="Faculty ID*"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lastname_layout" />
@@ -143,8 +148,8 @@
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:text="Password*"
-        android:textColor="@color/black"
-
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/studentID_layout" />
 
@@ -182,8 +187,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_15sdp"
-        android:textColor="@color/black"
-
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:text="Confirm Password*"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password_layout" />
@@ -222,95 +227,105 @@
         android:layout_marginLeft="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_16sdp"
         android:text="Courses *"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/confirmpassword_layout" />
 
         <com.google.android.material.checkbox.MaterialCheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:checked="false"
             android:id="@+id/javaCourse"
-            android:textColor="@color/black"
-            android:buttonTint="@color/black"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            app:layout_constraintTop_toBottomOf="@id/text_courseList"
-            android:text="Java (13800)"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            android:buttonTint="@color/white"
             android:checked="false"
-            android:id="@+id/pmCourse"
-            android:textColor="@color/black"
-            android:buttonTint="@color/black"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            app:layout_constraintTop_toBottomOf="@id/javaCourse"
-            android:text="Project Management (13800)"/>
-
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:checked="false"
-            android:id="@+id/gdpCourse"
-            android:textColor="@color/black"
-            android:buttonTint="@color/black"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            app:layout_constraintTop_toBottomOf="@id/pmCourse"
-            android:text="GDP-1 (13800)"/>
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:checked="false"
-            android:id="@+id/bigdataCourse"
-            android:textColor="@color/black"
-            android:buttonTint="@color/black"
-            android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            app:layout_constraintTop_toBottomOf="@id/gdpCourse"
-            android:text="Big Data (13800)"/>
-
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/id_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_22sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        android:background="@drawable/rectangle"
-        android:backgroundTint="@color/bluecolor"
-        android:orientation="horizontal"
-        android:padding="@dimen/_4sdp"
-        app:layout_constraintTop_toBottomOf="@id/bigdataCourse">
-
-
-        <TextView
-            android:id="@+id/text_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/register"
+            android:text="Java (13204)"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_courseList" />
 
-        <ImageView
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/text_login"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/pmCourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Project Management (23123)"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/javaCourse" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/gdpCourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="GDP-1 (13896)"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pmCourse" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/bigdataCourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/white"
+            android:checked="false"
+            android:text="Big Data (13900)"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gdpCourse" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/id_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/rectangle"
+            android:orientation="horizontal"
+            android:padding="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bigdataCourse">
+
+
+            <TextView
+                android:id="@+id/text_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/text_login"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

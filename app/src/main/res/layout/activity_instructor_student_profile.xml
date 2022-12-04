@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/activity_main_piechart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_5sdp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                    android:layout_width="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_50sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/present_days"
+                    android:id="@+id/present_colors"
+                    app:cardBackgroundColor="@color/green"
+                    android:layout_height="@dimen/_20sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/present_colors"
+                    app:layout_constraintTop_toTopOf="@id/present_colors"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="0 Present Days"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:textStyle="bold"
+                    android:id="@+id/present_days"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                    android:layout_width="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_50sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/present_colors"
+                    app:layout_constraintRight_toLeftOf="@id/present_days"
+                    android:id="@+id/absent_colors"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/red"
+                    android:layout_height="@dimen/_20sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/absent_colors"
+                    app:layout_constraintTop_toTopOf="@id/absent_colors"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="0 Absent Days"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:id="@+id/absent_days"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.circularreveal.cardview.CircularRevealCardView
+                    android:layout_width="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_50sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/absent_colors"
+                    app:layout_constraintStart_toStartOf="@id/absent_colors"
+                    android:id="@+id/late_colors"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/yellow"
+                    android:layout_height="@dimen/_20sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/late_colors"
+                    app:layout_constraintTop_toTopOf="@id/late_colors"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:text="0 Late Days"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:id="@+id/late_days"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/_40sdp"
+                    android:layout_marginRight="@dimen/_40sdp"
+                    android:id="@+id/viewLinaee"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/late_colors"
+                    android:background="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text=""
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:id="@+id/scoree"
+                    android:textSize="@dimen/_30sdp"
+                    app:layout_constraintTop_toBottomOf="@id/viewLinaee"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="current scores"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintTop_toBottomOf="@id/scoree"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_height="wrap_content"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewGraph"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="10dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+
+            <org.eazegraph.lib.charts.PieChart xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/piechart"
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+                android:padding="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical">
+
+                    <!--View to display the yellow color icon-->
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="match_parent"
+                        android:background="#37E107" />
+
+                    <!--Text view to display R -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Present"
+                        android:textColor="#757575"
+                        android:textSize="@dimen/_12sdp" />
+                    <!--Text view to display R -->
+                    <TextView
+                        android:id="@+id/presentday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="30 days"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!--Linear layout to display Python-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <!--View to display the green color icon-->
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="match_parent"
+                        android:background="#EC2816" />
+
+                    <!--Text view to display python text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Absent"
+
+                        android:textColor="#757575"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <!--Text view to display R -->
+                    <TextView
+                        android:id="@+id/absentdays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="30 days"
+                        android:textColor="@color/black"
+
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <!--Linear layout to display C++-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/_5sdp">
+
+                    <!--View to display the red color icon-->
+                    <View
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="match_parent"
+                        android:background="#F8E644" />
+
+                    <!--Text view to display C++ text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+
+                        android:text="Late"
+                        android:textColor="#757575"
+                        android:textSize="@dimen/_12sdp" />
+                    <!--Text view to display R -->
+                    <TextView
+                        android:id="@+id/latedays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="30 days"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/no_record"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="No Record Found"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

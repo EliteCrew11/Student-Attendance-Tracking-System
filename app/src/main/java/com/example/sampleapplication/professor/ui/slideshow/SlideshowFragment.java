@@ -56,9 +56,11 @@ public class SlideshowFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getActivity(),QRGeneratorActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1111);
             }
         });
     }
+
+
 
 }

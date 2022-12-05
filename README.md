@@ -30,8 +30,8 @@
 
 ## How to Use
 #### For Windows/Mac
-- If the User want to edit the code like some added features, layout design or any other further modifications He/She must download the [Android Studio](https://developer.android.com/studio) in **Windows/Mac** to edit the code. 
+- If the User want to edit the code like some added features, layout design or any other further modifications He/She must download the [Android Studio](https://developer.android.com/studio) in **Windows/Mac** to edit the code. <br/>
 -> [Click Here]() to follow the Instructions for Windows/Mac.
 #### For Android Devices
-- If the User like to use the application in the **Android Mobile** He/She must download the [QRattendence.apk]() file and install it.
+- If the User like to use the application in the **Android Mobile** He/She must download the [QRattendence.apk]() file and install it. <br/>
 -> [Click Here]() to follow the Instructions for Android Devices.

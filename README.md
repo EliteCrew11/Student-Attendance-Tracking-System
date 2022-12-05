@@ -24,14 +24,14 @@
 - Github Desktop (Repository)
 
 ## Download Links
-> [**Android Studio**](https://developer.android.com/studio)
-> [**Firebase**](https://firebase.google.com/)
+> [**Android Studio**](https://developer.android.com/studio) <br/>
+> [**Firebase**](https://firebase.google.com/) <br/>
 > [**Github Desktop**](https://desktop.github.com/)
 
 ## How to Use
 #### For Windows/Mac
-If the User want to edit the code like some added features, layout design or any other further modifications He/She must download the [Android Studio](https://developer.android.com/studio) in **Windows/Mac** to edit the code. 
+- If the User want to edit the code like some added features, layout design or any other further modifications He/She must download the [Android Studio](https://developer.android.com/studio) in **Windows/Mac** to edit the code. 
 -> [Click Here]() to follow the Instructions for Windows/Mac.
 #### For Android Devices
-If the User like to use the application in the **Android Mobile** He/She must download the [QRattendence.apk]() file and install it.
+- If the User like to use the application in the **Android Mobile** He/She must download the [QRattendence.apk]() file and install it.
 -> [Click Here]() to follow the Instructions for Android Devices.

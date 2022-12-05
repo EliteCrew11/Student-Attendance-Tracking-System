@@ -1,19 +1,19 @@
 # CSIS 44692 
 # Final Report 
 # Graduate Direct Report - II 
-# Student-Attendance-Tracking-System
+# **Student-Attendance-Tracking-System**
 - The main aim of this project is to develop a design and functional prototype of Student Attendance tracking System to maintain the attendance records of the students by scanning the QR code which is displayed by the instructor. Once done with scanning the QR code it should display as present and if he didn’t scan, it should display as absent.
 ## Team Members
 *Navya Sri Alaparthi (TL)* <br/>
-*Bikash Adhikari* br
-*Reshwanth Gundeti*
-*Mounisha Guntupalli* 
-*Arun Reddy Kakunuri*
-*Muralidhar Reddy Kalla* 
-*Akshay Krishna Kintali*
-*Manoj Kota*
-*Sai Kumar Mudhagoni* 
-*Karunakar Nampally*
+*Bikash Adhikari* <br/>
+*Reshwanth Gundeti* <br/>
+*Mounisha Guntupalli* <br/>
+*Arun Reddy Kakunuri* <br/>
+*Muralidhar Reddy Kalla* <br/>
+*Akshay Krishna Kintali* <br/>
+*Manoj Kota* <br/>
+*Sai Kumar Mudhagoni* <br/> 
+*Karunakar Nampally* <br/>
 *Chaitanya Swaroop Udata*
 
 ## Tools & Technologies Used
